@@ -8,8 +8,8 @@
     <PackageId>PoliNetwork.SampleNuGet</PackageId>
 
     <Authors>PoliNetwork</Authors>
-    <Description>A long description to explain your package</Description>
-    <PackageProjectUrl>https://www.meziantou.net/publishing-a-nuget-package-following-best-practices-using-github.htm</PackageProjectUrl>
+    <Description>Package test for NuGet</Description>
+    <PackageProjectUrl>https://github.com/PoliNetworkOrg/TestNugetPackage</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
@@ -21,6 +21,9 @@
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <EnablePackageValidation>true</EnablePackageValidation>
     <LangVersion>11</LangVersion>
+    <Version>1.0.1</Version>
+    <Title>PoliNetwork.SampleNuGet</Title>
+    <RepositoryUrl>https://github.com/PoliNetworkOrg/TestNugetPackage</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
