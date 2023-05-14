@@ -1,3 +1,3 @@
 # TestNugetPackage
 
-Repository di test per la creazione di un package Nuget
+Sample for the blog post [Publishing a NuGet package following best practices using GitHub](https://www.meziantou.net/publishing-a-nuget-package-following-best-practices-using-github.htm)
