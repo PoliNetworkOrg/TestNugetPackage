@@ -5,9 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<WarningsAsErrors>Nullable</WarningsAsErrors>
-    <PackageId>Meziantou.SampleNuGet</PackageId>
+    <PackageId>PoliNetwork.SampleNuGet</PackageId>
 
-    <Authors>Gérald Barré</Authors>
+    <Authors>PoliNetwork</Authors>
     <Description>A long description to explain your package</Description>
     <PackageProjectUrl>https://www.meziantou.net/publishing-a-nuget-package-following-best-practices-using-github.htm</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
