@@ -20,6 +20,7 @@
 
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <EnablePackageValidation>true</EnablePackageValidation>
+    <LangVersion>11</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
