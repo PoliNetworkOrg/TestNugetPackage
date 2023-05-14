@@ -21,7 +21,7 @@
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <EnablePackageValidation>true</EnablePackageValidation>
     <LangVersion>10</LangVersion>
-    <Version>1.0.1</Version>
+    <Version>0.0.2</Version>
     <Title>PoliNetwork.SampleNuGet</Title>
     <RepositoryUrl>https://github.com/PoliNetworkOrg/TestNugetPackage</RepositoryUrl>
   </PropertyGroup>
