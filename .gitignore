@@ -475,3 +475,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+.idea/.idea.SampleNuGet/.idea/.gitignore
+.idea/.idea.SampleNuGet/.idea/.name
+.idea/.idea.SampleNuGet/.idea/encodings.xml
+.idea/.idea.SampleNuGet/.idea/indexLayout.xml
+.idea/.idea.SampleNuGet/.idea/vcs.xml
