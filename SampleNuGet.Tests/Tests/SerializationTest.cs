@@ -15,6 +15,12 @@ public class SerializationTest
         Assert.True(b);
     }
 
+    /// <summary>
+    /// Compare if two tuples are equal
+    /// </summary>
+    /// <param name="t1">t1</param>
+    /// <param name="t2">t2</param>
+    /// <returns>true if equal</returns>
     private static bool EqualsTuples(Tuple<int, string, List<object>, float>? t1, Tuple<int, string, List<object>, float>? t2)
     {
         if (t1 == null && t2 == null)
@@ -28,6 +34,12 @@ public class SerializationTest
                t1.Item4.Equals(t2.Item4);
     }
 
+    /// <summary>
+    /// Compare if two lists are equal
+    /// </summary>
+    /// <param name="t1">first list</param>
+    /// <param name="t2">second list</param>
+    /// <returns>true if equal</returns>
     private static bool EqualsLists(IReadOnlyList<object> t1, IReadOnlyList<object> t2)
     {
         if (t1.Count != t2.Count)
