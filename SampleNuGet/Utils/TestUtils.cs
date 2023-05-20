@@ -1,9 +1,9 @@
-﻿namespace SampleNuGet;
+﻿namespace SampleNuGet.Utils;
 
 /// <summary>
 /// Dummy class
 /// </summary>
-public static class Utils
+public static class TestUtils
 {
     /// <summary>
     /// Sum
