@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<WarningsAsErrors>Nullable</WarningsAsErrors>
+    <WarningsAsErrors>1591</WarningsAsErrors>
     <PackageId>PoliNetwork.SampleNuGet</PackageId>
 
     <Authors>PoliNetwork</Authors>
