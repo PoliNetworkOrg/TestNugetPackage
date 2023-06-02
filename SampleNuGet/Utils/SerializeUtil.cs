@@ -40,4 +40,6 @@ public static class SerializeUtil
     {
         return new MemoryStream(bytes);
     }
+
+    public static string? JsonToString(object obj) => JsonConvert.SerializeObject(obj);
 }
