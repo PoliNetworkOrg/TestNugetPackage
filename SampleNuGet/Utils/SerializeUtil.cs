@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 
 namespace SampleNuGet.Utils;
@@ -9,6 +11,7 @@ namespace SampleNuGet.Utils;
 /// <summary>
 ///     Serialization util
 /// </summary>
+[PublicAPI]
 public static class SerializeUtil
 {
     /// <summary>
@@ -42,4 +45,74 @@ public static class SerializeUtil
     {
         return new MemoryStream(bytes);
     }
+
+ 
+    public static string? JsonToString(object obj) => JsonConvert.SerializeObject(obj);
+    
+    [Obsolete("Obsolete")]
+    public static void SerializeObjectToStream<T>(T objectToWrite, ref Stream? stream)
+    {
+        var binaryFormatter = new BinaryFormatter();
+        if (stream == null) return;
+        if (objectToWrite != null)
+            binaryFormatter.Serialize(stream, objectToWrite);
+    }
+    
+    /// <summary>
+    ///     Reads an object instance from a binary file.
+    /// </summary>
+    /// <typeparam name="T">The type of object to read from the binary file.</typeparam>
+    /// <param name="filePath">The file path to read the object instance from.</param>
+    /// <returns>Returns a new instance of the object read from the binary file.</returns>
+    [Obsolete("Obsolete")]
+    public static T? ReadFromBinaryFile<T>(string filePath)
+    {
+        Stream? stream = null;
+        try
+        {
+            stream = File.Open(filePath, FileMode.Open);
+            var binaryFormatter = new BinaryFormatter();
+            try
+            {
+                var r = (T)binaryFormatter.Deserialize(stream);
+                try
+                {
+                    stream.Close();
+                }
+                catch
+                {
+                    // ignored
+                }
+
+                return r;
+            }
+            catch
+            {
+                try
+                {
+                    stream.Close();
+                }
+                catch
+                {
+                    // ignored
+                }
+
+                return default;
+            }
+        }
+        catch
+        {
+            try
+            {
+                stream?.Close();
+            }
+            catch
+            {
+                // ignored
+            }
+
+            return default;
+        }
+    }
+
 }
