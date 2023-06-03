@@ -1,49 +1,49 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	<WarningsAsErrors>Nullable</WarningsAsErrors>
-    <WarningsAsErrors>1591</WarningsAsErrors>
-    <PackageId>PoliNetwork.SampleNuGet</PackageId>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <WarningsAsErrors>Nullable</WarningsAsErrors>
+        <WarningsAsErrors>1591</WarningsAsErrors>
+        <PackageId>PoliNetwork.SampleNuGet</PackageId>
 
-    <Authors>PoliNetwork</Authors>
-    <Description>Package test for NuGet</Description>
-    <PackageProjectUrl>https://github.com/PoliNetworkOrg/TestNugetPackage</PackageProjectUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageIcon>icon.png</PackageIcon>
+        <Authors>PoliNetwork</Authors>
+        <Description>Package test for NuGet</Description>
+        <PackageProjectUrl>https://github.com/PoliNetworkOrg/TestNugetPackage</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.png</PackageIcon>
 
-    <!-- A list of tags to help the search engine to understand the content of the package -->
-    <PackageTags>sample, library</PackageTags>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <!-- A list of tags to help the search engine to understand the content of the package -->
+        <PackageTags>sample, library</PackageTags>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
 
-    <NoWarn>$(NoWarn);CS1591</NoWarn>
-    <EnablePackageValidation>true</EnablePackageValidation>
-    <LangVersion>10</LangVersion>
-    <Version>1.0.4</Version>
-    <Title>PoliNetwork.SampleNuGet</Title>
-    <RepositoryUrl>https://github.com/PoliNetworkOrg/TestNugetPackage</RepositoryUrl>
-  </PropertyGroup>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <EnablePackageValidation>true</EnablePackageValidation>
+        <LangVersion>10</LangVersion>
+        <Version>1.0.4</Version>
+        <Title>PoliNetwork.SampleNuGet</Title>
+        <RepositoryUrl>https://github.com/PoliNetworkOrg/TestNugetPackage</RepositoryUrl>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <!--
-        Add an icon.png next to the csproj:
-        - Supported format: png, jpg
-        - Recommended dimensions: 128x128
-        - Maximum size: 1MB
-    -->
-    <None Include="icon.png" Pack="true" PackagePath="" />
-    <None Include="README.md" Pack="true" PackagePath="" />
-  </ItemGroup>
+    <ItemGroup>
+        <!--
+            Add an icon.png next to the csproj:
+            - Supported format: png, jpg
+            - Recommended dimensions: 128x128
+            - Maximum size: 1MB
+        -->
+        <None Include="icon.png" Pack="true" PackagePath=""/>
+        <None Include="README.md" Pack="true" PackagePath=""/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+    </ItemGroup>
 
 </Project>

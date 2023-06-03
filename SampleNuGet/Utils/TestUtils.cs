@@ -1,12 +1,12 @@
 ﻿namespace SampleNuGet.Utils;
 
 /// <summary>
-/// Dummy class
+///     Dummy class
 /// </summary>
 public static class TestUtils
 {
     /// <summary>
-    /// Sum
+    ///     Sum
     /// </summary>
     /// <param name="a"></param>
     /// <param name="b"></param>

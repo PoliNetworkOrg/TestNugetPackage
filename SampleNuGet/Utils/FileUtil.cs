@@ -1,12 +1,12 @@
 ﻿namespace SampleNuGet.Utils;
 
 /// <summary>
-/// Class util for files
+///     Class util for files
 /// </summary>
 public static class FileUtil
 {
     /// <summary>
-    /// Find file, searching subdirectories but can also search in upper directories
+    ///     Find file, searching subdirectories but can also search in upper directories
     /// </summary>
     /// <param name="searchPattern">Search pattern (all "*.*")</param>
     /// <param name="startingPath">Starting path</param>
@@ -16,11 +16,11 @@ public static class FileUtil
     {
         if (string.IsNullOrEmpty(startingPath))
             return null;
-        
+
         //input string must end with "/"
         if (!startingPath.EndsWith("/"))
             startingPath += "/";
-        
+
         while (howManyFoldersUp >= 0)
         {
             var files = FindFilesAlsoInSubdirectories(startingPath, searchPattern);
@@ -33,7 +33,7 @@ public static class FileUtil
             var newPath = Path.Join(startingPath, ".");
             if (newPath == oldPath)
                 return null;
-            
+
             howManyFoldersUp--;
         }
 
@@ -41,7 +41,7 @@ public static class FileUtil
     }
 
     /// <summary>
-    /// Finds files, also in subdirectories
+    ///     Finds files, also in subdirectories
     /// </summary>
     /// <param name="startingPath">Starting path</param>
     /// <param name="searchPattern">Search pattern (all "*.*")</param>

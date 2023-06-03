@@ -6,21 +6,23 @@ namespace SampleNuGet.Utils;
 //System.Runtime.Serialization.Formatters.Binary.BinaryFormatter is obsolete, replaced with
 //https://stackoverflow.com/a/53078979
 
-
 /// <summary>
-/// Serialization util
+///     Serialization util
 /// </summary>
 public static class SerializeUtil
 {
     /// <summary>
-    /// Serialize object
+    ///     Serialize object
     /// </summary>
     /// <param name="value">object to serialize</param>
     /// <returns>byte array of serialized object</returns>
-    public static byte[] SerializeObject(object? value) => Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(value));
+    public static byte[] SerializeObject(object? value)
+    {
+        return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(value));
+    }
 
     /// <summary>
-    /// Deserialize object, given the type (T)
+    ///     Deserialize object, given the type (T)
     /// </summary>
     /// <param name="bytes">byte array of the serialized object to deserialize</param>
     /// <typeparam name="T">type of the object</typeparam>
@@ -32,7 +34,7 @@ public static class SerializeUtil
     }
 
     /// <summary>
-    /// Get memory stream from byte array
+    ///     Get memory stream from byte array
     /// </summary>
     /// <param name="bytes">byte array</param>
     /// <returns>memory stream</returns>
