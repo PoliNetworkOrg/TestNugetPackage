@@ -34,8 +34,8 @@
             - Recommended dimensions: 128x128
             - Maximum size: 1MB
         -->
-        <None Include="icon.png" Pack="true" PackagePath=""/>
-        <None Include="README.md" Pack="true" PackagePath=""/>
+        <None Include="icon.png" Pack="true" PackagePath="" />
+        <None Include="README.md" Pack="true" PackagePath="" />
     </ItemGroup>
 
 
@@ -44,9 +44,9 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0-eap3"/>
-        <PackageReference Include="MySql.Data" Version="8.0.29"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0-eap3" />
+        <PackageReference Include="MySql.Data" Version="8.0.29" />
 
     </ItemGroup>
 
