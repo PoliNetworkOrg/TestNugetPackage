@@ -1,8 +1,4 @@
-﻿#region
-
-#endregion
-
-namespace SampleNuGet.Objects;
+﻿namespace SampleNuGet.Objects;
 
 public class QueueThreadSafe
 {
