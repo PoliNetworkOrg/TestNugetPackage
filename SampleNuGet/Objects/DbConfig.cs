@@ -7,9 +7,9 @@ using Newtonsoft.Json;
 
 namespace SampleNuGet.Objects;
 
+[PublicAPI]
 [Serializable]
 [JsonObject(MemberSerialization.Fields)]
-[PublicAPI]
 public class DbConfig
 {
     public string? Database;

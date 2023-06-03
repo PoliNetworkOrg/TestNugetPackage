@@ -2,12 +2,15 @@
 
 using JetBrains.Annotations;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 
 #endregion
 
 namespace SampleNuGet.Objects;
 
 [PublicAPI]
+[Serializable]
+[JsonObject(MemberSerialization.Fields)]
 public class MySqlConnectionWithLock
 {
     public readonly MySqlConnection Conn;

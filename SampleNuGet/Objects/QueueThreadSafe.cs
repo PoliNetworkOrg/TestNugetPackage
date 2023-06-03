@@ -1,8 +1,11 @@
 ﻿using JetBrains.Annotations;
+using Newtonsoft.Json;
 
 namespace SampleNuGet.Objects;
 
 [PublicAPI]
+[Serializable]
+[JsonObject(MemberSerialization.Fields)]
 public class QueueThreadSafe
 {
     private readonly Queue<MySqlConnectionWithLock> _available;

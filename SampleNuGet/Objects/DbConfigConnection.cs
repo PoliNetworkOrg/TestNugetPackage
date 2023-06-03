@@ -1,8 +1,11 @@
 ﻿using JetBrains.Annotations;
+using Newtonsoft.Json;
 
 namespace SampleNuGet.Objects;
 
 [PublicAPI]
+[Serializable]
+[JsonObject(MemberSerialization.Fields)]
 public class DbConfigConnection
 {
     private readonly DbConfig _dbConfig;
