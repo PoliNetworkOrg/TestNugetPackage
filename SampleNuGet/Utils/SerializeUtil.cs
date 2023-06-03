@@ -47,6 +47,7 @@ public static class SerializeUtil
  
     public static string? JsonToString(object obj) => JsonConvert.SerializeObject(obj);
     
+    [Obsolete("Obsolete")]
     public static void SerializeObjectToStream<T>(T objectToWrite, ref Stream? stream)
     {
         var binaryFormatter = new BinaryFormatter();
@@ -61,6 +62,7 @@ public static class SerializeUtil
     /// <typeparam name="T">The type of object to read from the binary file.</typeparam>
     /// <param name="filePath">The file path to read the object instance from.</param>
     /// <returns>Returns a new instance of the object read from the binary file.</returns>
+    [Obsolete("Obsolete")]
     public static T? ReadFromBinaryFile<T>(string filePath)
     {
         Stream? stream = null;
