@@ -45,8 +45,8 @@
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0-eap3" />
-        <PackageReference Include="MySql.Data" Version="8.0.29" />
+        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0-eap3"/>
+        <PackageReference Include="MySql.Data" Version="8.0.29"/>
 
     </ItemGroup>
 

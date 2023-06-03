@@ -46,9 +46,12 @@ public static class SerializeUtil
         return new MemoryStream(bytes);
     }
 
- 
-    public static string? JsonToString(object obj) => JsonConvert.SerializeObject(obj);
-    
+
+    public static string? JsonToString(object obj)
+    {
+        return JsonConvert.SerializeObject(obj);
+    }
+
     [Obsolete("Obsolete")]
     public static void SerializeObjectToStream<T>(T objectToWrite, ref Stream? stream)
     {
@@ -57,7 +60,7 @@ public static class SerializeUtil
         if (objectToWrite != null)
             binaryFormatter.Serialize(stream, objectToWrite);
     }
-    
+
     /// <summary>
     ///     Reads an object instance from a binary file.
     /// </summary>
@@ -114,5 +117,4 @@ public static class SerializeUtil
             return default;
         }
     }
-
 }

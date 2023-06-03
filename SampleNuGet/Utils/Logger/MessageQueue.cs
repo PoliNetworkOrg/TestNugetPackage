@@ -2,7 +2,6 @@
 
 internal class MessageQueue<T, TS>
 {
-
     public readonly string Text;
     public KeyValuePair<T, TS?> Key;
 
