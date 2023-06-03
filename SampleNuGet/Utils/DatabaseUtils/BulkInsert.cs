@@ -1,9 +1,11 @@
 ﻿using System.Data;
+using JetBrains.Annotations;
 using MySql.Data.MySqlClient;
 using SampleNuGet.Objects;
 
 namespace SampleNuGet.Utils.DatabaseUtils;
 
+[PublicAPI]
 public static class BulkInsert
 {
     public static int BulkInsertMySql(DataTable table, string tableName, DbConfigConnection? dbConfigConnection)
@@ -30,7 +32,7 @@ public static class BulkInsert
     }
 
 
-    private static DataTable FixDataTable(DataTable table, IReadOnlyList<Colonna> colonne)
+    private static DataTable FixDataTable(DataTable table, IReadOnlyList<Column> colonne)
     {
         var dt = new DataTable();
         for (var i = 0; i < table.Columns.Count; i++)
@@ -48,7 +50,7 @@ public static class BulkInsert
         return dt;
     }
 
-    private static object?[] FixDataRow(DataRow dr, IReadOnlyList<Colonna> colonne)
+    private static object?[] FixDataRow(DataRow dr, IReadOnlyList<Column> colonne)
     {
         var r = new object?[dr.ItemArray.Length];
         for (var i = 0; i < dr.ItemArray.Length; i++) r[i] = FixDataCell(dr.ItemArray[i], colonne[i]);
@@ -56,7 +58,7 @@ public static class BulkInsert
     }
 
 
-    private static object? FixDataCell(object? source, Colonna colonna)
+    private static object? FixDataCell(object? source, Column column)
     {
         try
         {
@@ -68,19 +70,19 @@ public static class BulkInsert
             if (string.IsNullOrEmpty(s))
                 return null;
 
-            if (colonna.DataType == typeof(int)) return int.Parse(s);
+            if (column.DataType == typeof(int)) return int.Parse(s);
 
-            if (colonna.DataType == typeof(long)) return long.Parse(s);
+            if (column.DataType == typeof(long)) return long.Parse(s);
 
-            if (colonna.DataType == typeof(bool)) return s == "1";
+            if (column.DataType == typeof(bool)) return s == "1";
 
-            if (colonna.DataType == typeof(char))
+            if (column.DataType == typeof(char))
             {
                 var x = int.Parse(s);
                 return (char)x;
             }
 
-            if (colonna.DataType == typeof(DateTime)) return DateTime.Parse(s);
+            if (column.DataType == typeof(DateTime)) return DateTime.Parse(s);
 
             return s;
         }
@@ -99,7 +101,7 @@ public static class BulkInsert
     /// <param name="table">DataTable of new table</param>
     /// <param name="tableName">Name of new table</param>
     /// <param name="dbConfigConnection">Connessione </param>
-    private static List<Colonna> CreateTable_DestroyIfExist(DataTable table, string tableName,
+    private static List<Column> CreateTable_DestroyIfExist(DataTable table, string tableName,
         DbConfigConnection dbConfigConnection)
     {
         TryDestroyTable(tableName, dbConfigConnection);
@@ -119,7 +121,7 @@ public static class BulkInsert
         }
     }
 
-    private static List<Colonna> CreateTable_As_It_Doesnt_Exist(DataTable table, string tableName,
+    private static List<Column> CreateTable_As_It_Doesnt_Exist(DataTable table, string tableName,
         DbConfigConnection dbConfigConnection)
     {
         var q = GenerateCreateTableQuery(table, tableName);
@@ -128,10 +130,10 @@ public static class BulkInsert
     }
 
 
-    private static Tuple<string, List<Colonna>> GenerateCreateTableQuery(DataTable table, string tableName)
+    private static Tuple<string, List<Column>> GenerateCreateTableQuery(DataTable table, string tableName)
     {
         var r = "CREATE TABLE " + tableName + "(";
-        var rC = new List<Colonna>();
+        var rC = new List<Column>();
         for (var i = 0; i < table.Columns.Count; i++)
         {
             var x = table.Columns[i];
@@ -147,7 +149,7 @@ public static class BulkInsert
         }
 
         r += ");";
-        return new Tuple<string, List<Colonna>>(r, rC);
+        return new Tuple<string, List<Column>>(r, rC);
     }
 
 
@@ -180,7 +182,7 @@ public static class BulkInsert
         return r;
     }
 
-    private static Tuple<string?, Colonna> MySqlStringTypeFromDataType(DataColumn xDataColumn,
+    private static Tuple<string?, Column> MySqlStringTypeFromDataType(DataColumn xDataColumn,
         List<object> exampleValue)
     {
         var xDataType = xDataColumn.DataType;
@@ -188,20 +190,20 @@ public static class BulkInsert
         var strings = GetStrings(exampleValue);
 
         if (typeof(int) == xDataType)
-            return new Tuple<string?, Colonna>("INT", new Colonna(xDataColumn.ColumnName, typeof(int)));
+            return new Tuple<string?, Column>("INT", new Column(xDataColumn.ColumnName, typeof(int)));
         if (typeof(long) == xDataType)
             return AllYn(strings)
-                ? new Tuple<string?, Colonna>("CHAR", new Colonna(xDataColumn.ColumnName, typeof(char)))
-                : new Tuple<string?, Colonna>("BIGINT", new Colonna(xDataColumn.ColumnName, typeof(long)));
+                ? new Tuple<string?, Column>("CHAR", new Column(xDataColumn.ColumnName, typeof(char)))
+                : new Tuple<string?, Column>("BIGINT", new Column(xDataColumn.ColumnName, typeof(long)));
 
         var enumerable = strings.ToList();
         if (enumerable.All(x => x is "0" or "1"))
-            return new Tuple<string?, Colonna>("BOOLEAN", new Colonna(xDataColumn.ColumnName, typeof(bool)));
+            return new Tuple<string?, Column>("BOOLEAN", new Column(xDataColumn.ColumnName, typeof(bool)));
 
         var dateTime = TryGetDateTime(exampleValue.First());
 
         if (dateTime != null)
-            return new Tuple<string?, Colonna>("DATETIME", new Colonna(xDataColumn.ColumnName, typeof(DateTime)));
+            return new Tuple<string?, Column>("DATETIME", new Column(xDataColumn.ColumnName, typeof(DateTime)));
 
         var maxLength = GetMaxLength(enumerable);
 
@@ -209,11 +211,11 @@ public static class BulkInsert
         {
             var length = maxLength.Value * 10;
             return length > 500
-                ? new Tuple<string?, Colonna>("TEXT", new Colonna(xDataColumn.ColumnName, typeof(string)))
-                : new Tuple<string?, Colonna>("VARCHAR(500)", new Colonna(xDataColumn.ColumnName, typeof(string)));
+                ? new Tuple<string?, Column>("TEXT", new Column(xDataColumn.ColumnName, typeof(string)))
+                : new Tuple<string?, Column>("VARCHAR(500)", new Column(xDataColumn.ColumnName, typeof(string)));
         }
 
-        return new Tuple<string?, Colonna>(null, new Colonna(xDataColumn.ColumnName, typeof(object)));
+        return new Tuple<string?, Column>(null, new Column(xDataColumn.ColumnName, typeof(object)));
     }
 
     private static bool AllYn(IEnumerable<string> strings)

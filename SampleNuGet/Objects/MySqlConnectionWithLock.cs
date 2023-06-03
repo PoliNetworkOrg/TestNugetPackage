@@ -1,11 +1,13 @@
 ﻿#region
 
+using JetBrains.Annotations;
 using MySql.Data.MySqlClient;
 
 #endregion
 
 namespace SampleNuGet.Objects;
 
+[PublicAPI]
 public class MySqlConnectionWithLock
 {
     public readonly MySqlConnection Conn;

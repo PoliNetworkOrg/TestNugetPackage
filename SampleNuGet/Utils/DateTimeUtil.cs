@@ -1,6 +1,9 @@
-﻿namespace SampleNuGet.Utils;
+﻿using JetBrains.Annotations;
 
-public static class DateTimeClass
+namespace SampleNuGet.Utils;
+
+[PublicAPI]
+public static class DateTimeUtil
 {
     public static DateTime? GetUntilDate(string?[]? time)
     {

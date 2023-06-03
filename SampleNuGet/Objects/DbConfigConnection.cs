@@ -1,5 +1,8 @@
-﻿namespace SampleNuGet.Objects;
+﻿using JetBrains.Annotations;
 
+namespace SampleNuGet.Objects;
+
+[PublicAPI]
 public class DbConfigConnection
 {
     private readonly DbConfig _dbConfig;

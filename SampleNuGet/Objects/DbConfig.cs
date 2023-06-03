@@ -1,5 +1,6 @@
 ﻿#region
 
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 
 #endregion
@@ -8,6 +9,7 @@ namespace SampleNuGet.Objects;
 
 [Serializable]
 [JsonObject(MemberSerialization.Fields)]
+[PublicAPI]
 public class DbConfig
 {
     public string? Database;

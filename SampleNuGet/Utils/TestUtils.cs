@@ -1,8 +1,11 @@
-﻿namespace SampleNuGet.Utils;
+﻿using JetBrains.Annotations;
+
+namespace SampleNuGet.Utils;
 
 /// <summary>
 ///     Dummy class
 /// </summary>
+[PublicAPI]
 public static class TestUtils
 {
     /// <summary>

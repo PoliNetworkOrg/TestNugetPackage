@@ -1,5 +1,8 @@
-﻿namespace SampleNuGet.Objects;
+﻿using JetBrains.Annotations;
 
+namespace SampleNuGet.Objects;
+
+[PublicAPI]
 public class QueueThreadSafe
 {
     private readonly Queue<MySqlConnectionWithLock> _available;

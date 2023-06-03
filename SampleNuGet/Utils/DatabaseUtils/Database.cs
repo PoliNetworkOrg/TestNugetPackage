@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Data;
+using JetBrains.Annotations;
 using MySql.Data.MySqlClient;
 using SampleNuGet.Objects;
 using SampleNuGet.Utils.Logger;
@@ -9,6 +10,7 @@ using SampleNuGet.Utils.Logger;
 
 namespace SampleNuGet.Utils.DatabaseUtils;
 
+[PublicAPI]
 public static class Database
 {
     public static int Execute(string? query, DbConfigConnection? dbConfigConnection,

@@ -1,5 +1,8 @@
-﻿namespace SampleNuGet.Utils.Logger;
+﻿using JetBrains.Annotations;
 
+namespace SampleNuGet.Utils.Logger;
+
+[PublicAPI]
 public enum LogSeverityLevel
 {
     EMERGENCY = 1,
