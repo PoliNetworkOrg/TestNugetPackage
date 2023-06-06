@@ -54,4 +54,24 @@ public static class FileUtil
     {
         return Directory.GetFiles(startingPath, searchPattern, SearchOption.AllDirectories);
     }
+    
+    
+    public static bool TryDelete(string? path)
+    {
+        if (string.IsNullOrEmpty(path)) return false;
+        try
+        {
+            File.Delete(path);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public static void TryBulkDelete(IEnumerable<string?> paths)
+    {
+        foreach (var path in paths) TryDelete(path);
+    }
 }
