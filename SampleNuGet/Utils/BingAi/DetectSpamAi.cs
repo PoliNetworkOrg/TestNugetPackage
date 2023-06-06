@@ -18,7 +18,7 @@ public class DetectSpamAi
             Tone = BingChatTone.Balanced,
         });
 
-        var message = "Do you think this message is scam/spam? Be strict.\n\n\n----\n\n"+messageToCheck ;
+        var message = "Do you think this message is scam/spam? Be strict and give me a yes/no answer, only yes or no.\n\n\n----\n\n"+messageToCheck ;
         var answer = AskClientBing(client, message);
         var trueAnswer = DetectIfTrue(answer);
 
@@ -49,6 +49,12 @@ public class DetectSpamAi
         var cannot = CountSubstringOccurrences(answer, "cannot confirm");
         if (cannot > 0)
             return null;
+        
+        var cannot2 = CountSubstringOccurrences(answer, "couldn't find");
+        if (cannot2 > 0)
+            return null;
+        
+ 
         
         var xYes = CountSubstringOccurrences(answer, "yes");
         var xYeah = CountSubstringOccurrences(answer, "yeah");
