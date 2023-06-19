@@ -9,26 +9,28 @@ namespace SampleNuGet.Utils.BingAi;
 [JsonObject(MemberSerialization.Fields)]
 public class DetectSpamAi
 {
-    public static (bool?,string) DetectSpam(string messageToCheck)
+    public static (bool?, string) DetectSpam(string messageToCheck)
     {
         // Construct the chat client
         var client = new BingChatClient(new BingChatClientOptions
         {
             // Tone used for conversation
-            Tone = BingChatTone.Balanced,
+            Tone = BingChatTone.Balanced
         });
 
-        var message = "Do you think this message is scam/spam? Be strict and give me a yes/no answer, only yes or no.\n\n\n----\n\n"+messageToCheck ;
+        var message =
+            "Do you think this message is scam/spam? Be strict and give me a yes/no answer, only yes or no.\n\n\n----\n\n" +
+            messageToCheck;
         var answer = AskClientBing(client, message);
         var trueAnswer = DetectIfTrue(answer);
 
         return (trueAnswer, answer);
     }
-    
+
     public static int CountSubstringOccurrences(string mainString, string subString)
     {
-        int count = 0;
-        int index = 0;
+        var count = 0;
+        var index = 0;
 
         while ((index = mainString.IndexOf(subString, index, StringComparison.OrdinalIgnoreCase)) != -1)
         {
@@ -49,13 +51,12 @@ public class DetectSpamAi
         var cannot = CountSubstringOccurrences(answer, "cannot confirm");
         if (cannot > 0)
             return null;
-        
+
         var cannot2 = CountSubstringOccurrences(answer, "couldn't find");
         if (cannot2 > 0)
             return null;
-        
- 
-        
+
+
         var xYes = CountSubstringOccurrences(answer, "yes");
         var xYeah = CountSubstringOccurrences(answer, "yeah");
         var xNo = CountSubstringOccurrences(answer, "no");
