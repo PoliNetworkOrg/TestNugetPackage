@@ -213,7 +213,6 @@ public static class BulkInsert
         return length > 500
             ? new Tuple<string?, Column>("TEXT", new Column(xDataColumn.ColumnName, typeof(string)))
             : new Tuple<string?, Column>("VARCHAR(500)", new Column(xDataColumn.ColumnName, typeof(string)));
-
     }
 
     private static bool AllYn(IEnumerable<string?> strings)

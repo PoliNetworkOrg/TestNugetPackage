@@ -344,7 +344,8 @@ public static class DateTimeUtil
                 (int)Convert.ToInt64(orario[2]), (int)Convert.ToInt64(v4[1].Trim()[..3]));
             return d2;
         }
-        else if (v != null && v.Contains('-'))
+
+        if (v != null && v.Contains('-'))
         {
             var data = v.Split('-');
             var d1 = new DateTime((int)Convert.ToInt64(data[0]), (int)Convert.ToInt64(data[1]),
