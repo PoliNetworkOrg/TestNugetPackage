@@ -332,23 +332,17 @@ public static class DateTimeUtil
             var v2 = v.Split(' ');
             //v2[0] data, v2[1] ora
 
-            if (v2[0].Contains('-'))
-            {
-                var data = v2[0].Split('-');
-                if (v2[1].Contains('.'))
-                {
-                    var v4 = v2[1].Split('.');
-                    if (v4[0].Contains(':'))
-                    {
-                        var orario = v4[0].Split(':');
-                        var d2 = new DateTime((int)Convert.ToInt64(data[0]), (int)Convert.ToInt64(data[1]),
-                            (int)Convert.ToInt64(data[2]), (int)Convert.ToInt64(orario[0]),
-                            (int)Convert.ToInt64(orario[1]),
-                            (int)Convert.ToInt64(orario[2]), (int)Convert.ToInt64(v4[1].Trim()[..3]));
-                        return d2;
-                    }
-                }
-            }
+            if (!v2[0].Contains('-')) return null;
+            var data = v2[0].Split('-');
+            if (!v2[1].Contains('.')) return null;
+            var v4 = v2[1].Split('.');
+            if (!v4[0].Contains(':')) return null;
+            var orario = v4[0].Split(':');
+            var d2 = new DateTime((int)Convert.ToInt64(data[0]), (int)Convert.ToInt64(data[1]),
+                (int)Convert.ToInt64(data[2]), (int)Convert.ToInt64(orario[0]),
+                (int)Convert.ToInt64(orario[1]),
+                (int)Convert.ToInt64(orario[2]), (int)Convert.ToInt64(v4[1].Trim()[..3]));
+            return d2;
         }
         else if (v != null && v.Contains('-'))
         {

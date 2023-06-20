@@ -47,7 +47,7 @@ public static class SerializeUtil
     }
 
 
-    public static string? JsonToString(object obj)
+    public static string JsonToString(object obj)
     {
         return JsonConvert.SerializeObject(obj);
     }

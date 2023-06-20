@@ -183,7 +183,7 @@ public static class BulkInsert
     }
 
     private static Tuple<string?, Column> MySqlStringTypeFromDataType(DataColumn xDataColumn,
-        List<object> exampleValue)
+        List<object?> exampleValue)
     {
         var xDataType = xDataColumn.DataType;
 
@@ -207,18 +207,16 @@ public static class BulkInsert
 
         var maxLength = GetMaxLength(enumerable);
 
-        if (maxLength != null)
-        {
-            var length = maxLength.Value * 10;
-            return length > 500
-                ? new Tuple<string?, Column>("TEXT", new Column(xDataColumn.ColumnName, typeof(string)))
-                : new Tuple<string?, Column>("VARCHAR(500)", new Column(xDataColumn.ColumnName, typeof(string)));
-        }
+        if (maxLength == null)
+            return new Tuple<string?, Column>(null, new Column(xDataColumn.ColumnName, typeof(object)));
+        var length = maxLength.Value * 10;
+        return length > 500
+            ? new Tuple<string?, Column>("TEXT", new Column(xDataColumn.ColumnName, typeof(string)))
+            : new Tuple<string?, Column>("VARCHAR(500)", new Column(xDataColumn.ColumnName, typeof(string)));
 
-        return new Tuple<string?, Column>(null, new Column(xDataColumn.ColumnName, typeof(object)));
     }
 
-    private static bool AllYn(IEnumerable<string> strings)
+    private static bool AllYn(IEnumerable<string?> strings)
     {
         const char _cy = 'Y';
         const char _cs = 'S';
@@ -230,8 +228,11 @@ public static class BulkInsert
         {
             try
             {
-                var xc = int.Parse(x);
-                return xc is _in or _is or _iy;
+                if (x != null)
+                {
+                    var xc = int.Parse(x);
+                    return xc is _in or _is or _iy;
+                }
             }
             catch
             {
@@ -242,22 +243,18 @@ public static class BulkInsert
         });
     }
 
-    private static int? GetMaxLength(IEnumerable<string> strings)
+    private static int? GetMaxLength(IEnumerable<string?> strings)
     {
-        return strings.Max(x => x.Length);
+        return strings.Max(x =>
+        {
+            var argLength = x?.Length ?? -1;
+            return argLength;
+        });
     }
 
-    private static IEnumerable<string> GetStrings(List<object> exampleValue)
+    private static IEnumerable<string?> GetStrings(List<object?> exampleValue)
     {
-        var r = new List<string>();
-        foreach (var item in exampleValue)
-        {
-            var s = item.ToString();
-            if (s != null)
-                r.Add(s);
-        }
-
-        return r;
+        return exampleValue.Select(item => item?.ToString()).Where(s => s != null).ToList();
     }
 
     private static DateTime? TryGetDateTime(object? exampleValue)
