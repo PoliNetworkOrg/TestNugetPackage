@@ -54,8 +54,8 @@ public static class FileUtil
     {
         return Directory.GetFiles(startingPath, searchPattern, SearchOption.AllDirectories);
     }
-    
-    
+
+
     public static bool TryDelete(string? path)
     {
         if (string.IsNullOrEmpty(path)) return false;
