@@ -1,18 +1,12 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Numerics;
 using Newtonsoft.Json;
-using PoliNetworkBot_CSharp.Code.Bots.Anon;
-using PoliNetworkBot_CSharp.Code.Data.Constants;
-using SampleNuGet.Utils.CallbackUtils;
+using SampleNuGet.Objects;
 
 #endregion
 
-namespace PoliNetworkBot_CSharp.Code.Utils.CallbackUtils;
+namespace SampleNuGet.Utils.CallbackUtils;
 
 [Serializable]
 [JsonObject(MemberSerialization.Fields)]

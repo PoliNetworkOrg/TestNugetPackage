@@ -28,7 +28,7 @@ public class SuccessWithException
         _ex = e2;
     }
 
-    internal bool IsSuccess()
+    public bool IsSuccess()
     {
         return _success;
     }
@@ -38,12 +38,12 @@ public class SuccessWithException
         return _ex;
     }
 
-    internal bool ContainsExceptions()
+    public bool ContainsExceptions()
     {
         return _ex is { Count: > 0 };
     }
 
-    internal ExceptionNumbered? GetFirstException()
+    public ExceptionNumbered? GetFirstException()
     {
         if (!ContainsExceptions()) return null;
         if (_ex == null) return null;

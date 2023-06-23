@@ -1,28 +1,16 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Numerics;
-using System.Threading;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
-using PoliNetworkBot_CSharp.Code.Bots.Anon;
-using PoliNetworkBot_CSharp.Code.Data.Constants;
-using PoliNetworkBot_CSharp.Code.Objects;
-using PoliNetworkBot_CSharp.Code.Objects.TelegramBotAbstract;
-using PoliNetworkBot_CSharp.Code.Utils.Notify;
 using SampleNuGet.Objects;
 using SampleNuGet.Objects.Exceptions;
-using SampleNuGet.Utils.CallbackUtils;
 using Telegram.Bot;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 
 #endregion
 
-namespace PoliNetworkBot_CSharp.Code.Utils.CallbackUtils;
+namespace SampleNuGet.Utils.CallbackUtils;
 
 public static class CallbackUtils
 {

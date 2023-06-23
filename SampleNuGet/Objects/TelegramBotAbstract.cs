@@ -535,7 +535,7 @@ public class TelegramBotAbstract
         }
     }
 
-    internal async Task<Tuple<File, Stream>?> DownloadFileAsync(Document d)
+    public async Task<Tuple<File, Stream>?> DownloadFileAsync(Document d)
     {
         switch (_isbot)
         {
@@ -1374,7 +1374,7 @@ public class TelegramBotAbstract
             : _contactString;
     }
 
-    internal async Task<SuccessWithException?> IsAdminAsync(long userId, long chatId)
+    public async Task<SuccessWithException?> IsAdminAsync(long userId, long chatId)
     {
         try
         {
@@ -1839,17 +1839,22 @@ public class TelegramBotAbstract
         }
     }
 
-    public async Task ForwardMessageAsync(ChatId messageId, ChatId idChatMessageFrom, int idChatMessageTo,
+    public async Task<Message?> ForwardMessageAsync(ChatId messageId, ChatId idChatMessageFrom, int idChatMessageTo,
         bool? disableNotification, bool? protectContent, int? messageThreadId, CancellationToken cancellationToken)
     {
         switch (_isbot)
         {
             case BotTypeApi.REAL_BOT:
                 if (_botClient != null)
-                    await _botClient.ForwardMessageAsync(messageId, idChatMessageFrom, idChatMessageTo,
+                {
+                    var forwardMessageAsync = _botClient.ForwardMessageAsync(messageId, idChatMessageFrom, idChatMessageTo,
                         messageThreadId,
                         disableNotification,
                         protectContent, cancellationToken);
+                    var m = await forwardMessageAsync;
+                    return m;
+                }
+
                 break;
 
             case BotTypeApi.USER_BOT:
@@ -1860,6 +1865,8 @@ public class TelegramBotAbstract
             case BotTypeApi.DISGUISED_BOT:
                 break;
         }
+
+        return null;
     }
 
     public static TelegramBotAbstract? From(BotClientWhole botClientWhole)
