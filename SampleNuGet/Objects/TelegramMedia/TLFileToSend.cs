@@ -1,16 +1,11 @@
 ﻿#region
 
-using System;
-using System.Threading.Tasks;
-using PoliNetworkBot_CSharp.Code.Utils;
-using SampleNuGet.Objects;
 using TeleSharp.TL;
 using TLSharp.Core;
-using StringUtil = PoliNetworkBot_CSharp.Code.Utils.StringUtil;
 
 #endregion
 
-namespace PoliNetworkBot_CSharp.Code.Objects.TelegramMedia;
+namespace SampleNuGet.Objects.TelegramMedia;
 
 public class TlFileToSend
 {

@@ -1,19 +1,14 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using PoliNetworkBot_CSharp.Code.Objects.TelegramBotAbstract;
 using PoliNetworkBot_CSharp.Code.Objects.TelegramMedia;
 using SampleNuGet.Objects;
-using SampleNuGet.Utils;
 using SampleNuGet.Utils.DatabaseUtils;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
 #endregion
 
-namespace PoliNetworkBot_CSharp.Code.Utils.UtilsMedia;
+namespace SampleNuGet.Utils.UtilsMedia;
 
 public static class UtilsPhoto
 {

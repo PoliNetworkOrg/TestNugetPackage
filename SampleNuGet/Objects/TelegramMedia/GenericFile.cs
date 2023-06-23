@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Threading.Tasks;
+using SampleNuGet.Objects.TelegramMedia;
 using Telegram.Bot.Types.Enums;
 using TLSharp.Core;
 
