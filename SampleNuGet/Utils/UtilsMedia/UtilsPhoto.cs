@@ -12,7 +12,7 @@ namespace SampleNuGet.Utils.UtilsMedia;
 
 public static class UtilsPhoto
 {
-    internal static PhotoSize? GetLargest(IEnumerable<PhotoSize?>? photo)
+    public static PhotoSize? GetLargest(IEnumerable<PhotoSize?>? photo)
     {
         if (photo == null)
             return null;

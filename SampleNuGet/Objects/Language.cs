@@ -54,7 +54,7 @@ public class Language
         return null;
     }
 
-    internal bool Matches(string? r)
+    public bool Matches(string? r)
     {
         return _dict.Keys.Count != 0 && _dict.Keys.Any(key => _dict[key] == r);
     }

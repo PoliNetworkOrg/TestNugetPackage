@@ -291,7 +291,7 @@ public class TelegramBotAbstract
         return _website;
     }
 
-    internal static TelegramBotAbstract? GetFromRam(TelegramBotClient? telegramBotClientBot)
+    public static TelegramBotAbstract? GetFromRam(TelegramBotClient? telegramBotClientBot)
     {
         return telegramBotClientBot?.BotId == null ? null : GlobalVariables.Bots?[telegramBotClientBot.BotId.Value];
     }
@@ -564,7 +564,7 @@ public class TelegramBotAbstract
         return null;
     }
 
-    internal async Task<Message?> EditText(ChatId chatId, int messageId, string newText,
+    public async Task<Message?> EditText(ChatId chatId, int messageId, string newText,
         InlineKeyboardMarkup inlineKeyboardMarkup)
     {
         switch (_isbot)
@@ -612,7 +612,7 @@ public class TelegramBotAbstract
         }
     }
 
-    internal long? GetId()
+    public long? GetId()
     {
         switch (_isbot)
         {
@@ -841,7 +841,7 @@ public class TelegramBotAbstract
         return false;
     }
 
-    internal async Task<MessageSentResult?> ForwardMessageAnonAsync(long chatIdToSend, Message? message,
+    public async Task<MessageSentResult?> ForwardMessageAnonAsync(long chatIdToSend, Message? message,
         int? messageIdToReplyToLong, int? messageThreadId)
     {
         if (message == null) return null;

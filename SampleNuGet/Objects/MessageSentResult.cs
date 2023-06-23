@@ -61,7 +61,7 @@ public class MessageSentResult
         return _messageId;
     }
 
-    internal string GetLink(string chatId, bool isPrivate)
+    public string GetLink(string chatId, bool isPrivate)
     {
         if (isPrivate)
             return "https://t.me/c/" + chatId + "/" + GetMessageId();

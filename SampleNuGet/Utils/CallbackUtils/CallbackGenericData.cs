@@ -13,8 +13,8 @@ namespace SampleNuGet.Utils.CallbackUtils;
 [JsonObject(MemberSerialization.Fields)]
 public class CallbackGenericData
 {
-    internal TelegramBotAbstract? Bot;
-    internal CallbackQuery? CallBackQueryFromTelegram;
+    public TelegramBotAbstract? Bot;
+    public CallbackQuery? CallBackQueryFromTelegram;
     public string? Id;
     internal DateTime? InsertedTime;
     internal MessageSentResult? MessageSent;
