@@ -32,7 +32,7 @@ public class Metrics
         sw.Reset();
     }
 
-    public T? Execute<T>(Func<T?> func, string helper = "")
+    public T Execute<T>(Func<T> func, string helper = "")
     {
         var fullFuncName = func.Method.DeclaringType?.FullName + "." + func.Method.Name;
 
