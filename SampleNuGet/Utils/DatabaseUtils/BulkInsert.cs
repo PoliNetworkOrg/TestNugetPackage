@@ -153,9 +153,9 @@ public static class BulkInsert
     }
 
 
-    private static List<object> TryGetNonNullValueAsExample(DataTable table, int i)
+    private static List<object?> TryGetNonNullValueAsExample(DataTable table, int i)
     {
-        var r = new List<object>();
+        var r = new List<object?>();
         try
         {
             foreach (DataRow dr in table.Rows)
