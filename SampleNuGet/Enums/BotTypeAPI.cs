@@ -1,7 +1,5 @@
 ﻿#region
 
-using System;
-
 #endregion
 
 namespace PoliNetworkBot_CSharp.Code.Enums;

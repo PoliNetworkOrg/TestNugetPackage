@@ -28,6 +28,4 @@ public class DbConfig
         return "server='" + Host + "';user='" + User + "';database='" + Database + "';port=" + Port + ";password='" +
                Password + "'" + ";Allow User Variables=True";
     }
-
-
 }

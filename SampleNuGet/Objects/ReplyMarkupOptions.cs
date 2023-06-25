@@ -1,7 +1,5 @@
 ﻿#region
 
-using System.Collections.Generic;
-using System.Linq;
 using Telegram.Bot.Types.ReplyMarkups;
 using TeleSharp.TL;
 
