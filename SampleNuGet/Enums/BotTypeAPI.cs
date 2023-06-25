@@ -1,8 +1,4 @@
-﻿#region
-
-#endregion
-
-namespace PoliNetworkBot_CSharp.Code.Enums;
+﻿namespace SampleNuGet.Enums;
 
 [Serializable]
 public enum BotTypeApi
