@@ -30,7 +30,7 @@ public static class Tables
         }
     }
 
-    public static long GetMaxId(string tableName, string columnIdName, DbConfigConnection? dbConfig)
+    private static long GetMaxId(string tableName, string columnIdName, DbConfigConnection? dbConfig)
     {
         var q = "SELECT MAX(" + columnIdName + ") FROM " + tableName;
         var r = Database.ExecuteSelect(q, dbConfig);
