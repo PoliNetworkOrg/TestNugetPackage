@@ -11,19 +11,19 @@ namespace PoliNetworkBot_CSharp.Code.Objects;
 /// </summary>
 public class L : Language
 {
-    public L(string langCode, string text) : base()
+    public L(string langCode, string text)
     {
     }
 
-    public L(string langCode1, string text1, string langCode2, string text2) : base()
+    public L(string langCode1, string text1, string langCode2, string text2)
     {
     }
 
-    public L() : base()
+    public L()
     {
     }
 
-    public L(string? text) : base()
+    public L(string? text)
     {
     }
 }
