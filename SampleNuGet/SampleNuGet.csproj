@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <WarningsAsErrors>Nullable</WarningsAsErrors>
@@ -68,6 +67,4 @@
         <Folder Include="Objects\Exceptions\"/>
         <Folder Include="Objects\TelegramMedia\"/>
     </ItemGroup>
-
-
 </Project>
