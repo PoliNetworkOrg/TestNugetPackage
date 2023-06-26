@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <WarningsAsErrors>Nullable</WarningsAsErrors>
@@ -22,7 +21,7 @@
         <NoWarn>$(NoWarn);CS1591</NoWarn>
         <EnablePackageValidation>true</EnablePackageValidation>
         <LangVersion>10</LangVersion>
-        <Version>1.0.4</Version>
+        <Version>1.0.5</Version>
         <Title>PoliNetwork.SampleNuGet</Title>
         <RepositoryUrl>https://github.com/PoliNetworkOrg/TestNugetPackage</RepositoryUrl>
     </PropertyGroup>
@@ -68,6 +67,4 @@
         <Folder Include="Objects\Exceptions\"/>
         <Folder Include="Objects\TelegramMedia\"/>
     </ItemGroup>
-
-
 </Project>
