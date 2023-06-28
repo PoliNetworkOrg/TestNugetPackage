@@ -1,0 +1,70 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <WarningsAsErrors>Nullable</WarningsAsErrors>
+        <WarningsAsErrors>1591</WarningsAsErrors>
+        <PackageId>PoliNetwork.SampleNuGet</PackageId>
+
+        <Authors>PoliNetwork</Authors>
+        <Description>Package test for NuGet</Description>
+        <PackageProjectUrl>https://github.com/PoliNetworkOrg/TestNugetPackage</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.png</PackageIcon>
+
+        <!-- A list of tags to help the search engine to understand the content of the package -->
+        <PackageTags>sample, library</PackageTags>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <EnablePackageValidation>true</EnablePackageValidation>
+        <LangVersion>10</LangVersion>
+        <Version>1.0.5</Version>
+        <Title>PoliNetwork.SampleNuGet</Title>
+        <RepositoryUrl>https://github.com/PoliNetworkOrg/TestNugetPackage</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!--
+            Add an icon.png next to the csproj:
+            - Supported format: png, jpg
+            - Recommended dimensions: 128x128
+            - Maximum size: 1MB
+        -->
+        <None Include="icon.png" Pack="true" PackagePath=""/>
+        <None Include="README.md" Pack="true" PackagePath=""/>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="BingChat" Version="0.8.0"/>
+        <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0-eap3"/>
+        <PackageReference Include="MySql.Data" Version="8.0.29"/>
+        <PackageReference Include="Telegram.Bot" Version="19.0.0"/>
+        <PackageReference Include="TLSharp" Version="0.1.0.574"/>
+
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <Reference Include="TeleSharp.TL">
+            <HintPath>..\..\PoliNetworkBot_CSharp\dll\TeleSharp.TL.dll</HintPath>
+        </Reference>
+        <Reference Include="TLSharp.Core">
+            <HintPath>..\..\PoliNetworkBot_CSharp\dll\TLSharp.Core.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <Folder Include="Objects\Exceptions\"/>
+        <Folder Include="Objects\TelegramMedia\"/>
+    </ItemGroup>
+</Project>

@@ -3,5 +3,4 @@
 [Serializable]
 public enum BotTypeApi
 {
-ciao
 }
