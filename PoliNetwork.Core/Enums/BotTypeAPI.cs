@@ -1,4 +1,6 @@
-﻿namespace SampleNuGet.Enums;
+﻿using System;
+
+namespace SampleNuGet.Enums;
 
 [Serializable]
 public enum BotTypeApi
